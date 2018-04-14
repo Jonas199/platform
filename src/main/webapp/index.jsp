@@ -24,7 +24,7 @@
   <div ng-controller="myCtrl">
   <md-content>
     <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="selectedTab">
-      <md-tab label="REQUESTS">
+      <md-tab label="GETTING STARTED">
         <md-content class="md-padding">
     <md-radio-group ng-model="data.group1">
       <md-radio-button value="USER" class="md-primary">Create New User</md-radio-button>
@@ -32,8 +32,7 @@
     </md-radio-group>
     <hr>
 		<div  id="user"  ng-show="(data.group1 == 'USER')">
-		
-          <h2 class="md-display-2">Create New User</h2>
+	     <h2 class="md-display-2">Create New User</h2>
          <table>
 		  <tr>
 		    <th>Value</th>
@@ -47,57 +46,10 @@
 		    	<input ng-model="UserName"  placeholder="MyUsername...">
 		    </td>
 		  </tr>
-		  <tr>
-		    <td>
-		    	<h4>Common Name</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="CommonName"  placeholder="VPN Client...">
-		    </td>
-		  </tr>
-		  <tr>
-		    <td>
-		    	<h4>Country</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="Country"  placeholder="DE...">
-		    </td>
-		  </tr>
-		   <tr>
-		    <td>
-		    	<h4>State</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="State"  placeholder="Bavaria...">
-		    </td>
-		  </tr>
-		  	<tr>
-		    <td>
-		    	<h4>Location</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="Location"  placeholder="Munich...">
-		    </td>
-		  </tr>
-		  <tr>
-		    <td>
-		    	<h4>Organization</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="Organization"  placeholder="MyCompany...">
-		    </td>
-		  </tr>
-		   <tr>
-		    <td>
-		    	<h4>Organization Unit</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="OrganizationUnit"  placeholder="Sales...">
-		    </td>
-		  </tr>
+		  
 		</table>
 		<div>
-		<button ng-click="createNewUser()" >Submit Request</button>
+		<button ng-click="createNewUser()" >Create</button>
 		</div>
 		</div>
 		<div  id="course" ng-show="(data.group1 == 'COURSE')">		
@@ -112,123 +64,49 @@
 		    	<h4>Course Name</h4>
 		    </td>
 		    <td>
-		    	<input ng-model="CommonName"  placeholder="VPN Client...">
+		    	<input ng-model="CourseName"  placeholder="MyCourse...">
 		    </td>
 		  </tr>
 		  <tr>
 		    <td>
-		    	<h4>Country</h4>
+		    	<h4>Course Topic</h4>
 		    </td>
 		    <td>
-		    	<input ng-model="Country"  placeholder="DE...">
-		    </td>
-		  </tr>
-		   <tr>
-		    <td>
-		    	<h4>State</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="State"  placeholder="Bavaria...">
-		    </td>
-		  </tr>
-		  	<tr>
-		    <td>
-		    	<h4>Location</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="Location"  placeholder="Munich...">
-		    </td>
-		  </tr>
-		  <tr>
-		    <td>
-		    	<h4>Organization</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="Organization"  placeholder="MyCompany...">
-		    </td>
-		  </tr>
-		   <tr>
-		    <td>
-		    	<h4>Organization Unit</h4>
-		    </td>
-		    <td>
-		    	<input ng-model="OrganizationUnit"  placeholder="Sales...">
+		    	<input ng-model="CourseTopic"  placeholder="MyTopic...">
 		    </td>
 		  </tr>
 		</table>
 		<div>
-		<button ng-click="SendData()" >Submit Request</button>
+		<button ng-click="createNewCourse()" >Create</button>
 		</div>
 		</div>
         </md-content>
       </md-tab>
-      <md-tab label="CMP MESSAGES">
+      <md-tab label="COURSES">
         <md-content class="md-padding">
-          <h2 class="md-display-2">CMP Messages</h2>
+          <h2 class="md-display-2">Courses</h2>
 		  	<button>
 				<i class="fa fa-refresh" style="font-size:24px" ng-click="Refresh()"></i>
 			</button>
 			<table>
 		  <tr >
-		    <th>ID</th>
-		    <th>Type</th>
-		    <th>Status</th>
-			<th>TimeStamp</th>
-			<th>Source</th>
+		    <th>Name</th>
+		    <th>Topic</th>
+		    <th>Participants</th>
 		   </tr>
 		  <tr ng-repeat = "cmpMessage in cmpMessages">
 		    <td>
-		    	<h4>{{::cmpMessage.ID}}</h4>
+		    	<h4>{{::courses.ID}}</h4>
 		    </td>
 			<td>
-		    	<h4>{{::cmpMessage.Type}}</h4>
+		    	<h4>{{::courses.Type}}</h4>
 		    </td>
 		    <td>
-		    	<h4>{{::cmpMessage.Status}}</h4>
-		    </td>
-			<td>
-		    	<h4>{{::cmpMessage.TimeStamp}}</h4>
-		    </td>
-			<td>
-		    	<h4>{{::cmpMessage.Source}}</h4>
+		    	<h4>{{::courses.Status}}</h4>
 		    </td>
 		 </tr>
 		</table>
         </md-content>
-      </md-tab>
-      <md-tab label="SETTINGS">
-        <md-content class="md-padding">
-          <h2 class="md-display-2">Settings</h2>
-           <table>
-		  <tr>
-		  <h2>Certificate Authority</h2>
-		    <th>Name</th>
-		    <th>Url</th> 
-		 </tr>
-		  <tr>
-		    <td>
-		    	<input ng-model="Name"  placeholder="MyCertificateAuthority...">
-		    </td>
-		    <td>
-		    	<input ng-model="Url"  placeholder="www.MyCA.com/cmp/...">
-		    </td>
-		  </tr>
-		  
-		</table>
-		<div>
-		<button ng-click="SaveSettings()">Save Settings</button>
-		</div>
-        </md-content>
-      </md-tab>
-	   <md-tab label="TOOLS">
-        <md-content class="md-padding">
-          <h2 class="md-display-2">Tools</h2>
-		  <ul>
-			<li><a href="https://www.sslshopper.com/csr-decoder.html">Decode CSR File</a>
-			</li>
-			<li><a href="https://lapo.it/asn1js/">DER to ASN1 Decoder</a>
-		</ul>
-       </md-content>
       </md-tab>
     </md-tabs>
   </md-content>

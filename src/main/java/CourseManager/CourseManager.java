@@ -21,5 +21,9 @@ public class CourseManager {
 		}
 	}
 	
+	public ArrayList<Course> getCourseList(){
+		return this.courseList;
+	}
+	
 
 }
