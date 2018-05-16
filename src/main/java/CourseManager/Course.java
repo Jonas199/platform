@@ -1,6 +1,8 @@
 package CourseManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+
 
 
 
@@ -15,12 +17,13 @@ import javax.json.JsonObject;
 
 import UserManager.User;
 
-public class Course {
+public class Course implements Serializable{
 	private static int id = 0;
 	private String name;
 	private String topic;
 	int numberOfParticipants;
 	private int CourseId;
+	private User owner;
 	private ArrayList<String> tags;
 	private ArrayList<User> participantList;
 	
@@ -62,6 +65,14 @@ public class Course {
 		return this.CourseId;
 	}
 	
+	public User getOwner(){
+		return this.getOwner();
+	}
+	
+	public int getNumberOfParticipants(){
+		return this.numberOfParticipants;
+	}
+	
 	public void addTag(String tag){
 		this.tags.add(tag);
 	}
@@ -78,5 +89,11 @@ public class Course {
 //		 CmpMsg.addProperty("topic", topic);
 //		 CmpMsg.addProperty("numberOfParticipants",numberOfParticipants );
 		return CmpMsg;
+	}
+
+
+
+	public void setOwner(User owner) {
+		this.owner = owner;
 	}
 }

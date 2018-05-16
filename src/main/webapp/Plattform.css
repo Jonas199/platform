@@ -24,6 +24,13 @@
   margin-top: 26px;
   margin-left: 0; }
 
+.table, th,td {
+  border: 1px solid black;
+  border-collapse: separate;
+}
+.tbody tr:hover, tfoot tr:hover { 
+  background-color:#fffbf0;
+}
 
 /*
 Copyright 2016 Google Inc. All Rights Reserved. 

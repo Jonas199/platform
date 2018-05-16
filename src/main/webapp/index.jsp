@@ -27,12 +27,12 @@
       <md-tab label="GETTING STARTED">
         <md-content class="md-padding">
     <md-radio-group ng-model="data.group1">
-      <md-radio-button value="USER" class="md-primary">Create New User</md-radio-button>
+      <md-radio-button value="USER" class="md-primary">Create Account</md-radio-button>
       <md-radio-button value="COURSE">Create New Course </md-radio-button>
     </md-radio-group>
     <hr>
 		<div  id="user"  ng-show="(data.group1 == 'USER')">
-	     <h2 class="md-display-2">Create New User</h2>
+	     <h2 class="md-display-2">Create Account</h2>
          <table>
 		  <tr>
 		    <th>Value</th>
@@ -46,7 +46,14 @@
 		    	<input ng-model="UserName"  placeholder="MyUsername...">
 		    </td>
 		  </tr>
-		  
+		  		  <tr>
+		    <td>
+		    	<h4>Password</h4>
+		    </td>
+		    <td>
+		    	<input ng-model="Password"  placeholder="Password..." type="password" >
+		    </td>
+		  </tr>
 		</table>
 		<div>
 		<button ng-click="createNewUser()" >Create</button>
@@ -85,24 +92,54 @@
       <md-tab label="COURSES">
         <md-content class="md-padding">
           <h2 class="md-display-2">Courses</h2>
-		  	<button>
-				<i class="fa fa-refresh" style="font-size:24px" ng-click="Refresh()"></i>
+		  	<button ng-click="getCourses()">
+				<i class="fa fa-refresh" style="font-size:24px" ></i>
 			</button>
 			<table>
 		  <tr >
-		    <th>Name</th>
-		    <th>Topic</th>
-		    <th>Participants</th>
+		    <th width = 300>ID</th>
+		    <th width = 300>NAME</th>
+		    <th width = 300>TOPIC</th>
+		    <th width = 300>PARTICIPANTS</th>
+		    <th width = 300>PARTICIPATE</th>
 		   </tr>
-		  <tr ng-repeat = "cmpMessage in cmpMessages">
+		  <tr ng-repeat = "course in courses">
 		    <td>
-		    	<h4>{{::courses.ID}}</h4>
+		    	<h4>{{course.CourseId}}</h4>
 		    </td>
 			<td>
-		    	<h4>{{::courses.Type}}</h4>
+		    	<h4>{{course.name}}</h4>
 		    </td>
 		    <td>
-		    	<h4>{{::courses.Status}}</h4>
+		    	<h4>{{course.topic}}</h4>
+		    </td>
+		    <td>
+		    	<h4>{{course.numberOfParticipants}}</h4>
+		    </td>
+		    <td>
+		    	<button ng-click="participate()">Participate</button>
+		    </td>
+		 </tr>
+		</table>
+        </md-content>
+      </md-tab>
+       <md-tab label="USERS">
+        <md-content class="md-padding">
+          <h2 class="md-display-2">Users</h2>
+		  	<button ng-click="getUsers()">
+				<i class="fa fa-refresh" style="font-size:24px" ></i>
+			</button>
+			<table>
+		  <tr >
+		    <th width = 300>ID</th>
+		    <th width = 300>NAME</th>
+		   </tr>
+		  <tr ng-repeat = "user in users">
+		    <td>
+		    	<h4>{{user.UserId}}</h4>
+		    </td>
+			<td>
+		    	<h4>{{user.name}}</h4>
 		    </td>
 		 </tr>
 		</table>

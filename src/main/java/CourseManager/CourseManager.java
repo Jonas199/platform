@@ -1,20 +1,22 @@
 package CourseManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CourseManager {
+public class CourseManager implements Serializable {
 	
-	ArrayList<Course> courseList = new ArrayList<Course>();
+	private ArrayList<Course> courseList = new ArrayList<Course>();
 	
+		
 	public Course createCourse(String name, String topic){
 		Course c = new Course(name, topic);
-		courseList.add(c);
+		this.courseList.add(c);
 		return c;
 	}
 	
 	boolean deleteCourse(int id){
 		try{
-		courseList.remove(id);
+		this.courseList.remove(id);
 		return true;
 		}catch(Exception e){
 			return false;
