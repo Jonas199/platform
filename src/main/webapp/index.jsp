@@ -27,17 +27,17 @@
       <md-tab label="GETTING STARTED">
         <md-content class="md-padding">
     <md-radio-group ng-model="data.group1">
-      <md-radio-button value="USER" class="md-primary">Create Account</md-radio-button>
+      <md-radio-button value="USER" class="md-primary">Register</md-radio-button>
       <md-radio-button value="COURSE">Create New Course </md-radio-button>
     </md-radio-group>
     <hr>
 		<div  id="user"  ng-show="(data.group1 == 'USER')">
-	     <h2 class="md-display-2">Create Account</h2>
+	     <h2 class="md-display-2">Register</h2>
          <table>
-		  <tr>
-		    <th>Value</th>
-		    <th>Input</th> 
-		 </tr>
+<!-- 		  <tr> -->
+<!-- 		    <th>Value</th> -->
+<!-- 		    <th>Input</th>  -->
+<!-- 		 </tr> -->
 		  <tr>
 		    <td>
 		    	<h4>Username</h4>
@@ -54,6 +54,13 @@
 		    	<input ng-model="Password"  placeholder="Password..." type="password" >
 		    </td>
 		  </tr>
+		  		    <td>
+		    	<h4>Mail</h4>
+		    </td>
+		    <td>
+		    	<input ng-model="Mail"  placeholder="MyUser@...">
+		    </td>
+		  </tr>
 		</table>
 		<div>
 		<button ng-click="createNewUser()" >Create</button>
@@ -62,10 +69,10 @@
 		<div  id="course" ng-show="(data.group1 == 'COURSE')">		
 		 <h2 class="md-display-2">Create New Course</h2>
          <table>
-		  <tr>
-		    <th>Value</th>
-		    <th>Input</th> 
-		 </tr>
+<!-- 		  <tr> -->
+<!-- 		    <th>Value</th> -->
+<!-- 		    <th>Input</th>  -->
+<!-- 		 </tr> -->
 		  <tr>
 		    <td>
 		    	<h4>Course Name</h4>
